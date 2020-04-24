@@ -1,0 +1,16 @@
+#!/bin/bash
+
+function prepare_command() {
+prefix='/opt/vyatta/sbin/vyatta-cfg-cmd-wrapper '
+r=`echo -n "$1" | tr '\n' ';' | sed "s%;\([ \t\v\f]*[^ \t\v\f;#]\+\)%;$prefix\1%g" | tr ';' '\n'`
+echo -n "$prefix$r"
+}
+# first prepare the command in `cmd`, then apply in over ssh
+cmd=`prepare_command "begin
+delete firewall name blocker rule 1 disable
+commit
+save
+end"`
+echo "$cmd"
+
+ssh admin@10.0.0.1 "$cmd"
