@@ -13,4 +13,4 @@ save
 end"`
 echo "$cmd"
 
-ssh admin@10.0.0.1 "$cmd"
+ssh -o StrictHostKeyChecking=no admin@10.0.0.1 "$cmd"
