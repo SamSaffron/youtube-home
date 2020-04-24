@@ -18,22 +18,25 @@ get "/" do
       <style>
         #content {
           margin: auto;
-          max-width: 300px;
+          max-width: 400px;
         }
         input {
-          width: 200px;
-          height: 80px;
+          width: 400px;
+          height: 150px;
+          font-size: 35px;
+          margin-bottom: 100px;
+          margin-top: 100px;
         }
       </style>
     </head>
     <body>
       <div id="content">
         <form action="/enable" method="post">
-        <input type="submit" value="YouTube On">
+        <input class="on" type="submit" value="YouTube On">
         </form>
 
         <form action="/disable" method="post">
-        <input type="submit" value="YouTube Off">
+        <input class="off" type="submit" value="YouTube Off">
         </form>
       </div>
     </body>
