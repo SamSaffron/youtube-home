@@ -1,8 +1,8 @@
-FROM ruby:2.6
+FROM ruby:3.1
 
 WORKDIR /usr/src/app
 
-COPY Gemfile Gemfile.lock firewall-on firewall-off server.rb ./
+COPY Gemfile Gemfile.lock firewall-on firewall-off internet-on internet-off server.rb ./
 RUN gem install bundler
 RUN bundle install
 
